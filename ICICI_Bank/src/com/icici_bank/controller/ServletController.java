@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.icici_bank.helper.Helper;
 
-public class ServletController extends HttpServlet {
-       
+public class ServletController extends HttpServlet 
+{
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException 
 	{
 		String reqestType = req.getParameter("requestType");
