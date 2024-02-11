@@ -36,6 +36,7 @@ public class LoginDao
 					map.put("Address", (String) rs.getString("Address"));
 					map.put("Password_", (String) rs.getString("Password_"));
 				}
+				
 				return map;
 			}
 		} 
@@ -48,6 +49,7 @@ public class LoginDao
 			DbConnection.ConnectionClose();
 			System.out.println("Connection Close..!!");
 		}
+		
 		return map;
 	}
 	
@@ -71,6 +73,7 @@ public class LoginDao
 					map.put("admin_userId", (String) rs.getString("admin_userId"));
 					map.put("admin_password", (String) rs.getString("admin_password"));
 				}
+				
 				return map;
 			}
 		} 
@@ -83,6 +86,7 @@ public class LoginDao
 			DbConnection.ConnectionClose();
 			System.out.println("Connection Close..!!");
 		}
+		
 		return map;
 	}
 }
