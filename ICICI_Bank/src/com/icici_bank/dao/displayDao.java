@@ -11,8 +11,8 @@ import com.icici_bank.utility.DbConnection;
 
 public class displayDao 
 {
-	public static String showBalanceReturn(String accNum){
-		
+	public static String showBalanceReturn(String accNum)
+	{
 		Connection con = DbConnection.ConnectionOpen();
 		
 		try 
@@ -36,11 +36,12 @@ public class displayDao
 			DbConnection.ConnectionClose();
 			System.out.println("Connection Close..!!");
 		}
+		
 		return "";
 	}
 	
-	public static Map showTransactionsData(String accNum, String period){
-		
+	public static Map showTransactionsData(String accNum, String period)
+	{
 		Connection con = DbConnection.ConnectionOpen();
 		Map map = new LinkedHashMap();
 		
@@ -53,6 +54,7 @@ public class displayDao
 				stm.setString(2, accNum);
 				ResultSet rs = stm.executeQuery();
 				int i=1;
+				
 				while(rs.next())
 				{
 					Map<String, String> innerMap = new LinkedHashMap<String, String>();
@@ -66,6 +68,7 @@ public class displayDao
 					
 					map.put(Integer.toString(i++), innerMap);
 				}
+				
 				return map;
 			}
 		}
@@ -78,11 +81,12 @@ public class displayDao
 			DbConnection.ConnectionClose();
 			System.out.println("Connection Close..!!");
 		}
+		
 		return map;
 	}
 	
-public static Map showAllTransactionsData(){
-		
+	public static Map showAllTransactionsData()
+	{
 		Connection con = DbConnection.ConnectionOpen();
 		Map map = new LinkedHashMap();
 		
@@ -119,13 +123,13 @@ public static Map showAllTransactionsData(){
 			DbConnection.ConnectionClose();
 			System.out.println("Connection Close..!!");
 		}
+		
 		return map;
 	}
 	
-	public static Map showCardDetails(String accNum){
-		
+	public static Map showCardDetails(String accNum)
+	{
 		Connection con = DbConnection.ConnectionOpen();
-		
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		
 		try 
@@ -135,6 +139,7 @@ public static Map showAllTransactionsData(){
 				PreparedStatement stm = con.prepareStatement("Select * from ICICI_Debit_Card where Account_Number = ?");
 				stm.setString(1, accNum);
 				ResultSet rs = stm.executeQuery();
+				
 				while(rs.next())
 				{
 					map.put("Full_Name", (String) rs.getString("Full_Name"));
@@ -144,6 +149,7 @@ public static Map showAllTransactionsData(){
 					map.put("Valid_Thru", (String) rs.getString("Valid_Thru"));
 					map.put("CVV", (String) rs.getString("CVV"));
 				}
+				
 				return map;
 			}
 		}
@@ -156,6 +162,7 @@ public static Map showAllTransactionsData(){
 			DbConnection.ConnectionClose();
 			System.out.println("Connection Close..!!");
 		}
+		
 		return null;
 	}
 }
