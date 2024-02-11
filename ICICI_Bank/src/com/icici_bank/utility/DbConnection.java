@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DbConnection 
 {
-	static Connection con;
+	private static Connection conn;
 	
 	public static Connection ConnectionOpen()
 	{
@@ -14,14 +14,16 @@ public class DbConnection
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("Driver Found..!!");
-			con = DriverManager.getConnection("jdbc:mysql://192.168.57.5:3306/NT006","ishwar.mohan",")#EhWuwI");
+			conn = DriverManager.getConnection("jdbc:mysql://192.168.57.5:3306/NT006","ishwar.mohan",")#EhWuwI");
 			System.out.println("Connection Estabilished..!!");
-			return con;
+			
+			return conn;
 		}
 		catch (Exception e) 
 		{
 			System.out.println("Connection not Estabilished..!!");
 		}
+		
 		return null;
 	}
 
@@ -29,8 +31,8 @@ public class DbConnection
 	{
 		try 
 		{
-			if(con != null)
-			con.close();
+			if(conn != null)
+			conn.close();
 		} 
 		catch (SQLException e) 
 		{
