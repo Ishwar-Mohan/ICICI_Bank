@@ -1,26 +1,25 @@
 <%@page import="java.util.Map"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <link rel="icon" href="<%= request.getContextPath() %>/images/i_logo.png"></link>
-  <title>Login in to Internet Banking</title>
-  <link rel="stylesheet" href="<%= request.getContextPath() %>/css/ICICI_Bank.css"></link>
-  <script src="<%= request.getContextPath() %>/js/jQuery.js"></script>
-  <script src="<%= request.getContextPath() %>/js/ICICI_Bank.js"></script>
+	<link rel="icon" href="<%= request.getContextPath() %>/images/i_logo.png"></link>
+  	<title>Login in to Internet Banking</title>
+  	<link rel="stylesheet" href="<%= request.getContextPath() %>/css/ICICI_Bank.css"></link>
+  	<script src="<%= request.getContextPath() %>/js/jQuery.js"></script>
+  	<script src="<%= request.getContextPath() %>/js/ICICI_Bank.js"></script>
 </head>
 <body>
-	<%
-		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+<%
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-		if(session.getAttribute("map") == null)
-			response.sendRedirect("login.jsp");
-	
-		Map map = (Map) session.getAttribute("map");
-		String FullName = (String) map.get("Full_Name");
-		String[] name = FullName.split("\\s");
-	%>
+	if(session.getAttribute("map") == null)
+		response.sendRedirect("login.jsp");
+
+	Map map = (Map) session.getAttribute("map");
+	String FullName = (String) map.get("Full_Name");
+	String[] name = FullName.split("\\s");
+%>
 	<!-- header -->
 	<header>
 		<div id="myView-container">
