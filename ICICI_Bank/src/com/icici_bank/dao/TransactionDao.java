@@ -81,6 +81,7 @@ public class TransactionDao
 					System.out.println("Transaction failed..!!");
 					return "Doesn't Have Sufficient Balance..!!";
 				}
+				
 				System.out.println("Payment Sucessfull..!!");
 				return "Transaction Sucessfull";
 			}
@@ -94,6 +95,7 @@ public class TransactionDao
 			DbConnection.ConnectionClose();
 			System.out.println("Connection Close..!!");
 		}
+		
 		return "";
 	}
 	
@@ -113,7 +115,7 @@ public class TransactionDao
 				int i = stm.executeUpdate();
 				
 				if(i>0)
-				System.out.println("Pin Set Sucessfully..!!");
+					System.out.println("Pin Set Sucessfully..!!");
 			}
 		} 
 		catch (SQLException e) 
