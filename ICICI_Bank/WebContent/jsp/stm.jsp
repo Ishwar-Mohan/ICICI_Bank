@@ -2,29 +2,28 @@
 <%@page import="java.util.LinkedHashMap"%>
 <%@page import="com.icici_bank.helper.Helper"%>
 <%@page import="java.util.Iterator"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
- <head>
-  <link rel="icon" href="<%= request.getContextPath() %>/images/i_logo.png"></link>
-  <title>Infinity</title>
-  <link rel="stylesheet" href="<%= request.getContextPath() %>/css/ICICI_Bank.css"></link>
-  <script src="<%= request.getContextPath() %>/js/jQuery.js"></script>
-  <script src="<%= request.getContextPath() %>/js/ICICI_Bank.js"></script>
- </head>
- <body>
-	<%! Map map; %> 	
- 	<%
- 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
- 
-		if(session.getAttribute("map") == null)
-			response.sendRedirect("login.jsp");
-		
-		map = (Map) request.getAttribute("allTranscMap");
-		
-	%>
+<head>
+  	<link rel="icon" href="<%= request.getContextPath() %>/images/i_logo.png"></link>
+  	<title>Infinity</title>
+  	<link rel="stylesheet" href="<%= request.getContextPath() %>/css/ICICI_Bank.css"></link>
+  	<script src="<%= request.getContextPath() %>/js/jQuery.js"></script>
+  	<script src="<%= request.getContextPath() %>/js/ICICI_Bank.js"></script>
+</head>
+<body>
+<%! Map map; %> 	
+<%
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+	if(session.getAttribute("map") == null)
+		response.sendRedirect("login.jsp");
+	
+	map = (Map) request.getAttribute("allTranscMap");
+	
+%>
 	<header>
 		<div id="myView-container">
 			<div class="logo">
@@ -101,35 +100,35 @@
 	
 	<div class="transaction-show" id="transaction-show">
 
-			<table class="t-table">
-				
-				<tr class="t-row">
-					<th class="t-th">Sr. No.</th>
-					<th class="t-th">From Account</th>
-					<th class="t-th">To Account</th>
-					<th class="t-th">Transaction Date</th>
-					<th class="t-th">Remark</th>
-					<th class="t-th">Amount Withdraw</th>
-					<th class="t-th">Deposit Amount</th>
-				</tr >
-				<% 
-					int t = 1;
-					for(int i= map.size(); i>= 1 ; i--){ 
-						Map innerMap = (Map) map.get(Integer.toString(i));
-				%>
-				<tr class="t-col">
-					<td class="t-col"><%= t++ %></td>
-					<td class="t-col"><%= innerMap.get("FromAcc") %></td>
-					<td class="t-col"><%= innerMap.get("ToAcc") %></td>
-					<td class="t-col"><%= innerMap.get("Transcation_Date") %></td>
-					<td class="t-col"><%= innerMap.get("Remarks") %></td>
-					<td class="t-col"><%= innerMap.get("Amount_Withdraw") %></td>
-					<td class="t-col"><%= innerMap.get("Deposite_Amount") %></td>
-				</tr>
-				<%
-					} 
-				%>
-			</table> 
+		<table class="t-table">
+			
+			<tr class="t-row">
+				<th class="t-th">Sr. No.</th>
+				<th class="t-th">From Account</th>
+				<th class="t-th">To Account</th>
+				<th class="t-th">Transaction Date</th>
+				<th class="t-th">Remark</th>
+				<th class="t-th">Amount Withdraw</th>
+				<th class="t-th">Deposit Amount</th>
+			</tr >
+			<% 
+				int t = 1;
+				for(int i= map.size(); i>= 1 ; i--){ 
+					Map innerMap = (Map) map.get(Integer.toString(i));
+			%>
+			<tr class="t-col">
+				<td class="t-col"><%= t++ %></td>
+				<td class="t-col"><%= innerMap.get("FromAcc") %></td>
+				<td class="t-col"><%= innerMap.get("ToAcc") %></td>
+				<td class="t-col"><%= innerMap.get("Transcation_Date") %></td>
+				<td class="t-col"><%= innerMap.get("Remarks") %></td>
+				<td class="t-col"><%= innerMap.get("Amount_Withdraw") %></td>
+				<td class="t-col"><%= innerMap.get("Deposite_Amount") %></td>
+			</tr>
+			<%
+				} 
+			%>
+		</table>
 	</div>
  </body>
 </html>
