@@ -112,6 +112,7 @@ public class Helper
 	{
 		Map map  = (Map) req.getSession().getAttribute("map");
 	  	String flag = req.getParameter("value");
+		
 	  	if("true".equals(flag))
 	  	{
 	  		return displayDao.showBalanceReturn((String) map.get("Acc_Num"));
@@ -119,16 +120,6 @@ public class Helper
 	  	
 	  	return "*********";
 	}
-	
-/*	public static void showTransactions(HttpServletRequest req, HttpServletResponse res)
-	{
-		String accNum = (String) req.getParameter("account-num-stm");
-		String period = (String) req.getParameter("period");
-		
-		Map map = (Map) displayDao.showTransactionsData(accNum, period);
-		
-		req.setAttribute("transcMap", map);
-	}*/
 	
 	public static String showTransactions(HttpServletRequest req, HttpServletResponse res)
 	{
@@ -176,4 +167,3 @@ public class Helper
 		req.getSession().setAttribute("CardDetails", map);
 	}
 }
-
